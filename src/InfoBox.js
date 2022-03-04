@@ -8,12 +8,12 @@ function InfoBox({ title, cases, total, isRed, active, ...props }) {
         <Card
             onClick={props.onClick}
             className={`infoBox ${active && "infoBox--selected"} ${isRed && "infoBox--red"
-                }`}
-        >
+                }`}>
             <CardContent>
-                <Typography color="textSecondary" gutterBottom>
+                <Typography color="textSecondary">
                     {title}
                 </Typography>
+
                 <h2 className={`infoBox__cases ${!isRed && "infoBox__cases--green"}`}>
                     {cases}
                 </h2>
@@ -21,9 +21,10 @@ function InfoBox({ title, cases, total, isRed, active, ...props }) {
                 <Typography className="infoBox__total" color="textSecondary">
                     {prettyPrintStat(total)} Total
                 </Typography>
+
             </CardContent>
         </Card>
     )
 }
 
-export default InfoBox; 
+export default InfoBox;

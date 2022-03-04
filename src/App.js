@@ -21,7 +21,6 @@ function App() {
   const [casesType, setCasesType] =
     useState("cases");
 
-
   useEffect(() => {
     fetch("https://disease.sh/v3/covid-19/all")
       .then(response => response.json())
@@ -63,7 +62,7 @@ function App() {
         setCountry(countryCode);
         setCountryInfo(data);
         setMapCenter([data.countryInfo.lat, data.countryInfo.long]);
-        setMapZoom(4);
+        setMapZoom(5);
       });
   };
 
@@ -101,6 +100,7 @@ function App() {
           <InfoBox
             onClick={e => setCasesType("deaths")}
             title="Deaths"
+            active={casesType === "deaths"}
             isRed
             cases={prettyPrintStat(countryInfo.todayDeaths)}
             total={countryInfo.deaths} />
