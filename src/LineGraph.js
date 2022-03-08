@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Line } from 'react-chartjs-2';
+import { Bar } from 'react-chartjs-2';
 import numeral from "numeral";
 
 const options = {
@@ -81,7 +81,7 @@ function LineGraph({ casesType = 'cases', ...props }) {
     return (
         <div className={props.className}>
             {data?.length > 0 && (
-                <Line
+                <Bar
                     options={options}
                     data={{
                         datasets: [
@@ -93,7 +93,7 @@ function LineGraph({ casesType = 'cases', ...props }) {
                         ],
                     }}>
 
-                </Line>
+                </Bar>
             )}
         </div>
     );
