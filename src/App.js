@@ -7,6 +7,8 @@ import Table from "./Table";
 import { prettyPrintStat, sortdata } from "./util";
 import LineGraph from "./LineGraph";
 import "leaflet/dist/leaflet.css"
+import { BrowserRouter, useRoutes } from "react-router-dom";
+import ShowDataUsingRedux from "./store/ShowDataUsingRedux";
 
 function App() {
   const [countries, setCountries] = useState([]);
@@ -66,6 +68,15 @@ function App() {
       });
   };
 
+  const RoutesPath = () => {
+    let routes = useRoutes(
+      [
+        { path: "/reduxdata", element: <ShowDataUsingRedux /> },
+      ]
+    )
+    return routes;
+  }
+
   return (
     <div className="app">
       <div className="app__left">
@@ -121,7 +132,10 @@ function App() {
           <LineGraph className="app__graph" casesType={casesType} />
         </CardContent>
       </Card>
-    </div>
+
+      {/* Redux Data */}
+      {/* <ShowDataUsingRedux /> */}
+    </div >
   );
 }
 

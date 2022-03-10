@@ -2,6 +2,7 @@ import React from "react";
 import numeral from "numeral";
 import { Circle, Popup } from "react-leaflet";
 import ShowFirebaseData from "./ShowFirebaseData";
+import ShowDataUsingRedux from "./store/ShowDataUsingRedux";
 
 const casesTypeColors = {
     cases: {
@@ -61,7 +62,8 @@ export const showDataOnMap = (data, casesType = 'cases') => (
                         Deaths: {numeral(country.deaths).format("0,0")}
                     </div>
                 </div>
-                <ShowFirebaseData cases={country.cases} recovered={country.recovered} deaths={country.deaths} />
+                {/* <ShowFirebaseData cases={country.cases} recovered={country.recovered} deaths={country.deaths} /> */}
+                <ShowDataUsingRedux cases={country.cases} recovered={country.recovered} deaths={country.deaths} />
             </Popup>
         </Circle>
     ))
